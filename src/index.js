@@ -2,12 +2,14 @@
 import 'dotenv/config';
 import app from './app.js';
 import chalk from 'chalk';
+import dbConnect from './database/db.config.js';
 
 // server ------------------------------------------------>
 const startServer = () => {
     try {
-        const port = process.env.PORT || 4000;
+        dbConnect();
 
+        const port = process.env.PORT || 4000;
         app.listen(port, () => {
             console.log(
                 chalk.blue(`Server running on http://localhost:${port}`)
