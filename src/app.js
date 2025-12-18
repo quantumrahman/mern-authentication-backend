@@ -3,6 +3,7 @@ import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import authRouter from './routes/auth.route.js';
 
 // app --------------------------------------------------->
 const app = express();
@@ -22,6 +23,9 @@ app.use(cookieParser());
 app.get('/', (req, res) => {
     res.status(200).send('Api working!');
 });
+
+// routes ------------------------------------------------>
+app.use('/api/v1/auth', authRouter);
 
 // export modules ---------------------------------------->
 export default app;
