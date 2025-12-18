@@ -35,7 +35,7 @@ const signInController = async (req, res, next) => {
         if (!isMatch) {
             throw new AppError('Invalid password!', {
                 status: 400,
-                code: 'INVALID_EMAIL_ADDRESS',
+                code: 'INVALID_PASSWORD',
                 details: {
                     fields: ['password'],
                 },
