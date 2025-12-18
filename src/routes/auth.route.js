@@ -1,6 +1,6 @@
 // import modules ---------------------------------------->
 import express from 'express';
-import authSignupController from '../controller/auth.signup.controller.js';
+import authSignupController from '../controllers/auth.signup.controller.js';
 
 // router ------------------------------------------------>
 const router = express.Router();
