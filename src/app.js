@@ -18,5 +18,10 @@ app.use(cors({ origin: process.env.CORS_ORIGIN, credentials: true }));
 // cookie parseing --------------------------------------->
 app.use(cookieParser());
 
+// check route ------------------------------------------->
+app.get('/', (req, res) => {
+    res.status(200).send('Api working!');
+});
+
 // export modules ---------------------------------------->
 export default app;
