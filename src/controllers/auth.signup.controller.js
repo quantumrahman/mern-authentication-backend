@@ -1,9 +1,10 @@
 // import modules ---------------------------------------->
+import 'dotenv/config';
 import authModel from '../models/auth.model.js';
 import AppError from '../utils/constant/app.error.js';
+import generateJwt from '../utils/generator/jwt.generator.js';
 import emailValidator from '../utils/validator/email.validator.js';
 import generateHashPassword from '../utils/generator/hashpass.generator.js';
-import generateJwt from '../utils/generator/jwt.generator.js';
 
 // controller -------------------------------------------->
 const signUpController = async (req, res, next) => {
@@ -62,7 +63,7 @@ const signUpController = async (req, res, next) => {
             maxAge: 7 * 24 * 60 * 60 * 1000,
         });
 
-        return res.status(200).json({
+        return res.status(201).json({
             success: true,
             message: 'user register successfully!',
             user: {
