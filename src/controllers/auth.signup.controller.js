@@ -3,6 +3,7 @@ import 'dotenv/config';
 import authModel from '../models/auth.model.js';
 import AppError from '../utils/constant/app.error.js';
 import generateJwt from '../utils/generator/jwt.generator.js';
+import sendWelcomeEmail from '../utils/email/welcome.email.js';
 import emailValidator from '../utils/validator/email.validator.js';
 import generateHashPassword from '../utils/generator/hashpass.generator.js';
 
@@ -62,6 +63,8 @@ const signUpController = async (req, res, next) => {
             sameSite: process.env.NODE_DEV === 'production' ? 'none' : 'strict',
             maxAge: 7 * 24 * 60 * 60 * 1000,
         });
+
+        await sendWelcomeEmail(name, email);
 
         return res.status(201).json({
             success: true,
