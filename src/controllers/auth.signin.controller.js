@@ -8,7 +8,6 @@ import compareValidator from '../utils/validator/compare.validator.js';
 // controller -------------------------------------------->
 const signInController = async (req, res, next) => {
     const { email, password } = req.body;
-
     if (!email || !password) {
         throw new AppError('All fields is required!', {
             status: 400,
